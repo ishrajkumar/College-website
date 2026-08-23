@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+      <meta charset="UTF-8">
+      <meta name="portview" content="width=device-width, initial-scale=1.0">
     <title>CSS</title>
-    <meta charset="viewport" content="width=device-width, initial-scale=0.77">
     <style>
       .button{
         display:flex;
@@ -54,9 +55,11 @@
       }
 
       .container{
-        width:450px;
+        box-sizing:border-box;
+        max-width:450px;
+        width:100%;
         background:white;
-        margin-top:20px;
+        margin:0 auto;
         padding:15px;
         border-radius:10px;
         display:flex;

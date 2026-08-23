@@ -19,7 +19,7 @@ def contact():
 def form():
     return render_template('form.html')
 
-@app.route(/application)
+@app.route("/application")
 def application():
     return render_template("cation.html")
 

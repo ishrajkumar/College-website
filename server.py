@@ -31,6 +31,18 @@ def courses():
 def notice():
     return render_template("notice.html")
 
+@app.route("/ba")
+def ba():
+    return render_template("ba.html")
+
+@app.route("/bsc")
+def bsc():
+    return render_template("bsc.html")
+
+@app.route("/bca")
+def bca():
+    return render_template("bca.html")
+
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)

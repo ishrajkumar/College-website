@@ -43,8 +43,19 @@ def bsc():
 def bca():
     return render_template("bca.html")
 
-@app.route("/submit")
+@app.route("/submit", methods="["POST]")
 def submit():
+    name = request.form.get("name")
+    email = request.form.get("email")
+    subject = request.form.get("subjects")
+    message = request.form.get("message")
+    print(f"From Contact Us Page:")
+    print(f"Name: {name}")
+    print(f"Email Id: {email}")
+    print(f"Subject: {subjects}")
+    print(f"Message: {message}")
+    print(f"Data Received!")
+
     return render_template("submit.html")  
 
 

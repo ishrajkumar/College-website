@@ -23,6 +23,13 @@ def form():
 def application():
     return render_template("cation.html")
 
+@app.route("/courses")
+def courses():
+    return render_template("courses.html")
+
+@app.route("/notice")
+def notice():
+    return render_template("notice.html")
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))

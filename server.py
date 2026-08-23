@@ -43,7 +43,7 @@ def bsc():
 def bca():
     return render_template("bca.html")
 
-@app.route("/receive.")
+@app.route("/receive")
 def receive():
     return render_template("receive.html")  
 

@@ -19,6 +19,11 @@ def contact():
 def form():
     return render_template('form.html')
 
+@app.route(/application)
+def application():
+    return render_template("cation.html")
+
+
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)

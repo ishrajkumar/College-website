@@ -1,59 +1,12 @@
-from flask import Flask, render_template, request
+import os
+from flask import Flask
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route('/')
 def home():
-    return render_template("home.html")
+    return "College Website Running Successfully!"
 
-@app.route("/about")
-def about():
-    return render_template("about.html")
-
-@app.route("/courses")
-def courses():
-    return render_template("courses.html")
-
-@app.route("/application")
-def application():
-    return render_template("cation.html")
-
-@app.route("/form")
-def form():
-    return render_template("form.html")
-
-@app.route("/notice")
-def notice():
-    return render_template("notice.html")
-
-@app.route("/contact")
-def contact():
-    return render_template("contact.html")
-
-@app.route("/ba")
-def ba():
-    return render_template("ba.html")
-
-@app.route("/bsc")
-def bsc():
-    return render_template("bsc.html")
-
-@app.route("/bca")
-def bca():
-    return render_template("bca.html")
-
-@app.route("/submit", methods=["POST"])
-def submit():
-    name = request.form.get("Name")
-    email= request.form.get("Email")
-    subject= request.form.get("Subject")
-    message= request.form.get("Message")
-    print(f" From Contact Inquiry")
-    print(f"Received Details:")
-    print(f"Name: {name}")
-    print(f"Email: {email}")
-    print(f"Subject: {subject}")
-    print(f"Message: {message}")
-    return render_template ("submit.html")
-
-app.run(debug=True)
+if __name__ == '__main__':
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)

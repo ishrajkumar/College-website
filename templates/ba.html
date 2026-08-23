@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.77">
+    <style>
+      .button{
+        display:flex;
+        justify-content:center;
+        text-decoration:none;
+        gap:30px;
+        
+      }
+      .back{
+        background:blue;
+        padding:10px;
+        text-align:center;
+        width:80px;
+        border-radius:10px;
+        color:white;
+        text-decoration:none;
+        
+        
+      }
+      .apply{
+        text-decoration:none;
+        color:white;
+        background:blue;
+        padding:10px;
+        text-align:center;
+        margin:10px auto;
+        border-radius:10px;
+        
+        }
+      
+      .card{
+        border:1px solid blue;
+        padding:10px;
+        background:ghostwhite;
+        border-radius:10px;
+        display:flex;
+        flex-direction:column;
+        gap:10px;
+        
+        
+      }
+      body{
+        background:lightgrey;
+        margin:10px auto;
+        padding:5px 15px;
+      }
+      *{
+        box-sizing:border-box;
+      }
+
+      .container{
+        width:450px;
+        background:white;
+        margin-top:20px;
+        padding:15px;
+        border-radius:10px;
+        display:flex;
+        flex-direction:column;
+        gap:10px;
+        position:relative;
+        
+      }
+
+      h1{
+        background:darkblue;
+        color:white;
+        text-align:center;
+        padding:15px;
+        border-radius:10px;
+      }
+
+      p{
+        padding:10px;
+        line-height:1.6;
+      }
+
+      h2{
+        background:darkblue;
+        color:white;
+        text-align:center;
+        padding:10px;
+        margin:15px;
+        border-radius:10px;
+      }
+
+      ul{
+        line-height:1.8;
+      }
+      
+    </style>
+  </head>
+  <div class="container">
+    <h1>B.A. - Bachelor of Arts</h1>
+    <h2>Course Overview</h2>
+    <p>Bachelor of Arts (B.A.) is an undergraduate degree program focused on humanities, social sciences, languages and related areas. It helps students develop knowledge, communication skills, critical thinking and a better understanding of society, culture and human behavior.</p>
+    <div class="card">
+    <h2>Course Details</h2>
+    <ul>
+      <li><b>Course:</b>Bachelor of Arts</li>
+      <li><b>Short name:</b> B.A.</li>
+      <li><b>Level:</b>Under Graduate</li>
+      <li><b>Duration:</b> 4Years</li>
+      <li><b>Study Mode:</b> Regular</li>
+      <li><b>Course Type:</b> Degree Program</li>
+      <li><b>Eligibility</b> 12th/Intermediate or equivalent examination</li>
+      <li><b>Fields</b> Arts & Humanities</li>
+    </ul>
+    </div>
+    
+    <div class="card">
+    <h2>Subjects</h2>
+    <ul>
+      <li>History</li>
+      <li>Political Science</li>
+      <li>Economics</li>
+      <li>Geography</li>
+      <li>Hindi</li>
+      <li>English</li>
+      <li>Sociology</li>
+      <li>Other humanities/social-science subjects</li>
+    </ul>
+    </div>
+    
+    <div class="card">
+    <h2>Career Opportunities</h2>
+    <ul>
+      <li>Teaching</li>
+      <li>Government Service</li>
+      <li>Civil Service</li>
+      <li>Banking</li>
+      <li>Administration</li>
+      <li>Journalism</li>
+      <li>Content Writing</li>
+      <li>Social Services</li>
+    </ul>
+    </div>
+    
+    <div class="card">
+    <h2>Higher Studies</h2>
+    <ul>
+      <li>M.A.</li>
+      <li>B.Ed.</li>
+      <li>MBA</li>
+      <li>LLB</li>
+      <li>Other postgraduate programes</li>
+      <li>Competetive Examinations</li>
+    </ul>
+    </div>
+    
+    <a href="/form" class="apply">Click Here for Admission</a>
+    <div class="button">
+    <a href="/" class="back">Home</a>
+    <a href="/courses" class="back">Back</a>
+    </div>
+  </div>
+</html>

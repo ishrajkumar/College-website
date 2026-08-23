@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=0.74">
+    <style>
+      body{
+        background:lightgray;
+        margin:0;
+        padding:10px;
+      }
+
+      .container{
+        width:450px;
+        background:white;
+        padding:15px;
+        border-radius:10px;
+        
+      }
+      table{
+        width:100%;
+        border-collapse:collapse;
+        font-size:16px;  
+      }
+
+      th{
+        background:darkblue;
+        color:white;
+        padding:10px;
+        border:1px solid white;
+      }
+
+      td{
+        border:1px solid darkblue;
+        padding:10px;
+        text-align:center;
+      }
+
+      ul{
+        line-height:1.8;
+      }
+
+      p{
+        line-height:1.6;
+      }
+
+      span{
+        color:red;
+      }
+
+      .send{
+        padding:10px;
+        height:40px;
+        background:blue;
+        color:white;
+        height:40px;
+        width:120px;
+        border-radius:10px;
+        border:1px solid darkblue;
+      }
+
+      .button a{
+        text-decoration:none;
+        color:white;
+        background:blue;
+        padding:10px;
+        border-radius:10px;  
+      }
+
+      .button{
+        display:flex;
+        justify-content:space-between;
+      }
+
+      input{
+        width:100%;
+        font-size:16px;
+        height:25px;
+      }
+
+      select{
+        width:100%;
+        height:30px;
+        
+      }
+
+      textarea{
+        width:100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Contact Us</h1>
+      <p>Have questions about admission, courses, examinations or other college-related services? Feel free to contact Government Degree College. Our office and admission helpdesk are available to assist students with their queries and provide necessary information.</p>
+
+      <h2>College Contact Information</h2>
+      <ul>
+        <li><b>College Name: </b>Government Degree College</li>
+        <li><b>Address: </b>Bagah, West Champaran, Bihar</li>
+        <li><b>Phone:</b>+919508567890</li>
+        <li><b>Email:</b>gdcollege@gmail.com</li>
+        <li><b>Website: </b>www.gdcollege.com</li>
+      </ul>
+
+      
+      <h2>Office Hours</h2>
+      <table>
+        <tr>
+          <th>Day</th>
+          <th>Office Hours</th>
+        </tr>
+
+        <tr>
+          <td>Monday</td>
+          <td>10:00 AM - 4:00 PM</td>
+        </tr>
+        
+        <tr>
+          <td>Tuesday</td>
+          <td>10:00 AM - 4:00 PM</td>
+        </tr>
+        
+        <tr>
+          <td>Wednesday</td>
+          <td>10:00 AM - 4:00 PM</td>
+        </tr>
+        
+        <tr>
+          <td>Thrusday</td>
+          <td>10:00 AM - 4:00 PM</td>
+        </tr>
+        
+        <tr>
+          <td>Friday</td>
+          <td>10:00 AM - 4:00 PM</td>
+        </tr>
+        
+        <tr>
+          <td>Saturday</td>
+          <td>10:00 AM - 2:00 PM</td>
+        </tr>
+        <tr>
+          <td>Sunday</td>
+          <td>Closed</td>
+        </tr>
+        
+      </table>
+
+      <h2>Admission Helpdesk</h2>
+      <p>For admission-related queries, students can contact the admission helpdesk for assistance and information.</p>
+      <ul>
+        <li><b>Admission Enquiry:</b> +91 95085 67890</li>
+        <li><b>Email: </b>gdcollege@gmail.com</li>
+        <li><b>Services: </b>Course information, admission procedure, eligibility information, application assistance and document verification.</li>
+      </ul>
+
+      <h2>Send Us Message</h2>
+      <p>Have a question or need assistance? Send us a message using the contact form below. Please provide accurate information so that we can respond to your enquiry.</p>
+      <form action="/submit" method="POST">
+      <label>Full Name<span>*</span></label>
+      <br>
+      <input
+        name="Name"
+        type="text"
+        placeholder="Enter Your Full Name"
+        required>
+      <br><br>
+
+      <label>Email Address<span>*</span></label>
+      <br>
+      <input
+        name="Email"
+        type="email"
+        placeholder="Enter Your Email Address"
+        required>
+      <br><br>
+
+      <label>Subject<span>*</span></label>
+      <br>
+      <select name="Subject" required>
+        <option value="" disabled selected>Select</option>
+        <option value="Admission Inquiry" required>Admission Enquiry</option>
+        <option>Course Information</option>
+        <option value="Examination">Examination</option>
+        <option value="Scholarship">Scholarship</option>
+        <option value="Document Verification">Document Verification</option>
+        <option value="Genral Inquiry">General Enquiry</option>
+        <option value="Others">Other</option>
+      </select>
+      <br><br>
+
+      <label>Message<span>*</span></label>
+      <br>
+      <textarea
+        name="Message"
+        cols="30"
+        rows="7"
+        placeholder="Enter Your Message"
+        required></textarea>
+      <br><br>
+      <input
+        value="submit"
+        type="submit"
+        class="send">
+      </form>
+      <br><br>
+
+      <h2>Our Location</h2>
+      <p>Government Degree College is located in Bagaha, West Champaran, Bihar. The college provides undergraduate education to students from Bagaha and surrounding areas.</p>
+      <h2>Address</h2>
+      <p>Government Degree College
+Bagaha, West Champaran
+Bihar, India</p>
+      <br><br>
+
+      <h2>Frequently Asked Questions</h2>
+      <h3>Q. How can I contact the college?</h3>
+      <p>Students can contact the college through phone, email or the contact form available on this page.</p>
+      <h3>Q. How can I get admission information?</h3>
+      <p>Students can visit the Admission section or contact the admission helpdesk.</p>
+      <h3>Q. Where can I find course information?</h3>
+      <p>Course information is available on the Courses page.</p>
+      <h3>Q. How can I check the latest notices?</h3>
+      <p>Students can visit the Latest Notices page regularly for updates.</p>
+      <br><br>
+      
+      <div class="button">
+      <a href="/">Back</a>
+      <a href="/">Home</a>
+      </div>
+    </div>
+    
+  </body>
+</html>

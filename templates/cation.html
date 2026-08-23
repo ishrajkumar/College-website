@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=0.77">
+  </head>
+
+  <style>
+    *{
+      box-sizing:border-box;
+    }
+
+    .box{
+      border-radius:10px;
+    }
+    body{
+      background:lightgrey;
+    }
+
+    .box{
+      width:450px;
+      background:white;
+      margin-top:20px;
+      padding:15px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    h1{
+      color:white;
+      text-align:center;
+      background:darkblue;
+      padding:15px;
+      border-radius:10px;
+      font-size:30px;
+      margin:0;
+      box-shadow:5px 5px 15px darkgrey;
+    }
+    table{
+      width:100%;
+      border-collapse:collapse;
+    }
+
+    p{
+      line-height:1.6;
+      padding:10px;
+      color:black;
+      font-size:15px;
+    }
+
+    .notice{
+      background:ghostwhite;
+      border:1px solid blue;
+      padding:5px 10px;
+      border-radius:10px;
+      box-shadow:5px 5px 15px darkgrey;
+    }
+
+    .card{
+      display:flex;
+      flex-direction:column;
+      gap:30px;
+    }
+
+    .notice h2{
+      text-align:center;
+      background:darkblue;
+      padding:10px;
+      color:white;
+      border-radius:10px;
+      margin:10px;
+      box-shadow:5px 5px 15px darkgrey;
+    }
+
+    .ba{
+      background:white;
+      border:1px solid blue;
+      border-radius:10px;
+      padding:10px;
+      margin:10px;
+      box-shadow:5px 5px 15px darkgrey;
+    }
+
+    ul{
+      line-height:1.6;
+    }
+
+    ol{
+      line-height:1.6;
+    }
+
+    th{
+      background:darkblue;
+      color:white;
+      border:1px solid blue;
+      padding:10px;
+      color:white;
+    }
+
+    td{
+      border:1px solid blue;
+      padding:10px;
+      text-align:center;
+    }
+
+    a{
+      text-decoration:none;
+      background:blue;
+      color:white;
+      padding:10px;
+      text-align:center;
+      border-radius:10px;
+      width:120px;
+    }
+  </style>
+
+  <body>
+    <div class="box">
+      <h1>Admission</h1>
+      <p>Admissions are open for undergraduate programs. Students can check the eligibility requirements, admission process and required documents before applying.</p>
+      <div class="card">
+      <div class="notice">
+        <h2>Admission Information</h2>
+        <ul>
+          <li><b>Academic Session:  </b>2026-27</li>
+          <li><b>Admission Status: </b>Open</li>
+          <li><b>Course Level: </b> Under Graduate</li>
+          <li><b>Study Mode: </b>Regular</li>
+          <li><b>Application Mode: </b>Online/Offline</li>
+          <li><b>Available Programs: </b>B.A.,B.Sc.,BCA</li>
+        </ul>
+      </div>
+
+     <div class="notice">
+        <h2>Courses Available</h2>
+        <div class="ba">
+          <h3>B.A. - Bachelor of Arts</h3>
+          <ul>
+            <li><b>Duration: </b> 4 Years</li>
+            <li><b>Level: </b>Under Graduate</li>
+            <li><b>Eligibility: </b>12th/Intermediate or equivalent</li>
+          </ul>
+        </div>
+
+        <div class="ba">
+          <h3>B.Sc - Bachelor of Science</h3>
+          <ul>
+            <li><b>Duration: </b>4 Year</li>
+            <li><b>Level: </b>Under Graduate</li>
+            <li><b>Eligibility: </b>12th/Intermediate with required Science subjects</li>
+          </ul>
+        </div>
+
+        <div class="ba">
+          <h3>BCA - Bachelor of Computer Science</h3>
+          <ul>
+            <li><b>Duration: </b>4 Year</li>
+            <li><b>Level: </b>Under Graduate</li>
+            <li><b>Eligibility: </b>12th/Intermediate or equivalent, subject to applicable requirements</li>
+          </ul>
+        </div>
+     </div>
+
+      <div class="notice">
+        <h2>Eligibility Requirements</h2>
+        <ul>
+          <li><b>Applicant must have passed 12th/Intermediate or equivalent examination.</b></li>
+          <li><b>Applicant must fulfill the eligibility requirements of the selected course.</b></li>
+          <li><b>Required subjects must be studied where applicable.</b></li>
+          <li><b>Applicant must provide valid educational documents.</b></li>
+          <li><b>Admission is subject to the rules of the concerned university/college.</b></li>
+        </ul>
+      </div>
+
+     <div class="notice">
+       <h2>Admission Process</h2>
+       <ol>
+         <li>Choose your desired course.</li>
+         <li>Check the eligibility requirements.</li>
+         <li>Register for admission.</li>
+         <li>Fill in the application form.</li>
+         <li>Enter personal and educational details.</li>
+         <li>Upload/submit required documents.</li>
+         <li>Review the application.</li>
+         <li>Wait for selection/merit information.</li>
+         <li>Complete admission formalities after selection.</li>
+       </ol>
+     </div>
+
+      <div class="notice">
+        <h2>Required Documents</h2>
+        <ul>
+          <li>10th Marksheet</li>
+          <li>12th Marksheet</li>
+          <li>Transfer Certificate</li>
+          <li>Migration Certificate (if applicable)</li>
+          <li>Passport-size Photograph (2)</li>
+          <li>Identity Proof</li>
+          <li>Caste Certificate (if applicable)</li>
+          <li>Residence Certificate (if applicable)</li>
+          <li>Other documents required by the institution</li>
+        </ul>
+      </div>
+
+      <div class="notice">
+        <h2>Important Dates</h2>
+        <table>
+          <tr>
+            <th>Event</th>
+            <th>Date</th>
+          </tr>
+
+          <tr>
+            <td>Admission Start</td>
+            <td>31/12/2026</td>
+          </tr>
+
+          <tr>
+            <td>Application Last Date</td>
+            <td>01/02/2027</td>
+          </tr>
+
+          <tr>
+            <td>Merit List</td>
+            <td>10/01/2027</td>
+          </tr>
+
+          <tr>
+            <td>Admission Confirmation</td>
+            <td>31/03/2027</td>
+          </tr>
+
+          <tr>
+            <td>Classes Start</td>
+            <td>01/04/2027</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="notice">
+        <h2>Admission Fee</h2>
+        <table>
+          <tr>
+            <th>Service</th>
+            <th>Amount</th>
+          </tr>
+
+          <tr>
+            <td>Application Fee</td>
+            <td>Rs: 600</td>
+          </tr>
+
+          <tr>
+            <td>Admission Fee</td>
+            <td>Rs: 3500</td>
+          </tr>
+
+          <tr>
+            <td>Course Fee</td>
+            <td>Rs: 40,000</td>
+          </tr>
+
+          <tr>
+            <td>Payment Mode</td>
+            <td>Online</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="notice">
+        <h2>Selection Process</h2>
+        <ol>
+          <li>Application Submission</li>
+          <li>Eligibility Verification</li>
+          <li>Merit/Selection Process</li>
+          <li>Document Verification</li>
+          <li>Fee Payment</li>
+          <li>Admission Confirmation</li>
+        </ol>
+      </div>
+      </div>
+      <a href="/form">Apply Now</a>
+      <a href="/">Home</a>
+    </div>
+  </body>
+</html>

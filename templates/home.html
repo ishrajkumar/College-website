@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      CSS
+    </title>
+
+    <meta cbarset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.77">
+
+    <style>
+      
+      *{
+        box-sizing:border-box;
+      }
+
+      .container{
+        display:flex;
+        flex-direction:column;
+        gap:20px;
+      }
+      
+      body{
+        background:lightgray;
+        }
+
+      .head{
+        background:darkblue;
+        color:white;
+        width:450px;
+        text-align:center;
+        padding:5px;
+        border-radius:15px;
+      }
+
+      .nav{
+        display:flex;
+        justify-content:space-between;
+        background:blue;
+        border-radius:5px;
+        padding:10px;
+        width:450px;
+        
+        
+      }
+
+      .nav a{
+        color:white;
+      }
+
+      .greeting{
+        width:450px;
+        background:white;
+        padding:10px;
+        border-radius:10px; 
+      }
+
+      .greeting h2{
+        text-align:center;
+      }
+
+      .self{
+        background:white;
+        width:450px;
+        padding:10px;
+        border-radius:10px;
+      }
+
+      .self h2{
+        text-align:center;
+      }
+
+      .self a{
+        color:blue;
+      }
+
+      .courses{
+        width:450px;
+        background:white;
+        border-radius:10px;
+        padding:5px;
+      }
+
+      .card{
+        display:flex;
+        justify-content:space-evenly;
+      }
+
+
+      .courses h2{
+        text-align:center;
+      }
+
+      .ba{
+        background:white;
+        width:140px;
+        border-radius:10px;
+        padding:2px;
+        border:1px solid blue;
+        color:black;
+        
+        
+      }
+
+      .ba h3{
+        text-align:center;
+      }
+
+      .admission{
+        background:white;
+        width:450px;
+        padding:10px;
+        border-radius:10px;
+      }
+
+      .admission h2{
+        text-align:center;
+      }
+
+      .admission a{
+        text-decoration:none;
+        display:block;
+        text-align:center;
+        margin:auto;
+        padding:10px;
+        color:white;
+        background:blue;
+        border-radius:10px;
+        width:160px;
+        box-shadow:5px 5px 15px darkgrey;
+      }
+
+      .notices h2{
+        text-align:center;
+      }
+
+      .notices{
+        background:white;
+        border-radius:10px;
+        padding:10px;
+        width:450px;
+      }
+
+      .notices a{
+        color:blue;
+      }
+
+      .contact{
+        background:blue;
+        border-radius:10px;
+        color:white;
+        padding:10px;
+        width:450px;
+      }
+
+      .contact h2{
+        text-align:center;
+      }
+
+      .contact button{
+        color:white;
+        background:darkblue;
+        border-radius:10px;
+        padding:10px;
+        display:block;
+        margin:auto;
+      }
+
+      p{
+        line-height:1.8;
+      }
+
+      .last{
+    
+        text-align:center;
+        color:white
+        
+        
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="head">
+        <h1>Government Degree College</h1>
+        <p>Bagah, West Champaran</p>
+      </div>
+
+      <div class="nav">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/courses">Courses</a>
+        <a href="/application">Admission</a>
+        <a href="/notice">Notice</a>
+        <a href="/contact">Contact</a>
+      </div>
+
+      <div class="greeting">
+        <h2>Welcome to Government Degree College</h2>
+        <p>Quality Education for a Better Future</p>
+        <p>We are committed to providing quality education and a supportive learning environment for students.</p>
+      </div>
+
+      <div class="self">
+        <h2>About Our College</h2>
+        <p>Government Degree College provides quality education and a supportive learning environment for students. The college offers undergraduate courses and encourages students to develop their academic knowledge, skills and overall personality.</p>
+        <a href="about.html">Read More</a>
+        
+      </div>
+
+      <div class="courses">
+        <h2>Courses Offered</h2>
+        <div class="card">
+          <div class="ba">
+            <h3>B.A.</h3>
+            <p>Bachelor of Arts</p>
+          </div>
+          
+          <div class="ba">
+            <h3>B.Sc</h3>
+            <p>Bachelor of Science</p>
+          </div>
+      
+
+            <div class="ba">
+              <h3>BCA</h3>
+              <p>Bachelor of Computer Applications</p>
+            </div>
+        
+        </div>
+      </div>
+
+      <div class="admission">
+        <h2>Admission</h2>
+        <p>Admissions are open for undergraduate courses.</p>
+        <p>Students can apply for admission by completing the application process.</p>
+        <a href="/application">Click here to Apply</a>
+      </div>
+
+      <div class="notices">
+        <h2>Latest Notices</h2>
+        
+        <p>Admission forms are available now.</p>
+        <p> examination schedule will be announced soon.</p>
+        <p>Students are advised to check the notice section regularly.</p>
+  
+        <a href="/notice">View All Notices</a>
+      </div>
+
+      <div class="contact">
+        <h2>Contact Us</h2>
+        <ul>
+          <li>Address: Bagha, West Champaran, Bihar</li>
+          <li>Phone: 9508567890</li>
+          <li>email: gdcollege@gmail.com</li>
+        </ul>
+        <a href="/contact" class="last">Contact Us</a>
+      </div>
+    </div>
+  </body>
+</html>

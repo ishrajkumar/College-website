@@ -44,8 +44,8 @@ def bca():
     return render_template("bca.html")
 
 @app.route("/submit")
-def receive():
-    return render_template("receive.html")  
+def submit():
+    return render_template("submit.html")  
 
 
 if __name__ == '__main__':

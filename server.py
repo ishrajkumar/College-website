@@ -50,11 +50,11 @@ def submit():
     subject = request.form.get("subjects")
     message = request.form.get("message")
     print(f"From Contact Us Page:")
-    print(f"Name: {name}")
-    print(f"Email Id: {email}")
-    print(f"Subject: {subject}")
-    print(f"Message: {message}")
-    print(f"Data Received!")
+    print(f"Name: {name}", flush=True)
+    print(f"Email Id: {email}", flush=True)
+    print(f"Subject: {subject}", flush=True)
+    print(f"Message: {message}", flush=True)
+    print(f"Data Received!",flush=True)
 
     return render_template("submit.html")  
 

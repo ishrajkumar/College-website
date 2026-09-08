@@ -5,6 +5,9 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>CSS</title>
+    <link
+  href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+  rel="stylesheet">
 
     <style>
 
@@ -448,6 +451,7 @@
     </style>
   </head>
 
+
   <body>
     <div class="container">
     <header>
@@ -570,7 +574,7 @@
           </div>
       </div>
 
-      <div class="cont">
+      <div class="cont" data-aos="zoom-in">
           <h4>Contact Us</h4>
           <ul>
               <li><b>Address:</b> Harnatand, West Vhamparan, Bihar</li>
@@ -583,6 +587,15 @@
       </div>
       
     </div>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true
+    });
+  </script>
+
   </body>
 </html>
 

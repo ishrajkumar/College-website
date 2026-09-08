@@ -1,20 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>CSS</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=0.74">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS</title>
+
     <style>
+      *{
+        box-sizing:border-box;
+      }
+
+      h1{
+        margin:0;
+        font-size:16px;
+      }
+      
       body{
-        background:lightgray;
+        background:#FFFFFF;
         margin:0;
         padding:10px;
+        font-family: sens-serif;
       }
 
       .container{
-        width:450px;
         background:white;
-        padding:15px;
         border-radius:10px;
         
       }
@@ -25,6 +34,7 @@
       }
 
       th{
+        font-size:10px;
         background:darkblue;
         color:white;
         padding:10px;
@@ -32,6 +42,7 @@
       }
 
       td{
+        font-size:10px;
         border:1px solid darkblue;
         padding:10px;
         text-align:center;
@@ -43,6 +54,7 @@
 
       p{
         line-height:1.6;
+        font-size:12px;
       }
 
       span{
@@ -50,22 +62,23 @@
       }
 
       .send{
-        padding:10px;
-        height:40px;
-        background:blue;
-        color:white;
-        height:40px;
-        width:120px;
-        border-radius:10px;
-        border:1px solid darkblue;
+        text-align:center;
+        color:#FFFFFF;
+        border-radius:5px;
+        border:1px solid #002B66;
+        width:65px;
+        height:25px;
+        background:#002B66;
       }
 
       .button a{
         text-decoration:none;
         color:white;
-        background:blue;
-        padding:10px;
-        border-radius:10px;  
+        background:#002B66;
+        padding:7px;
+        border-radius:5px;
+        font-size:14px;
+        
       }
 
       .button{
@@ -76,18 +89,44 @@
       input{
         width:100%;
         font-size:16px;
-        height:25px;
+        height:24px;
       }
 
       select{
         width:100%;
-        height:30px;
+        height:25px;
         
       }
 
       textarea{
         width:100%;
       }
+
+      h2{
+          font-size:16px;
+          border:1px solid #002B66;
+          padding:5px;
+          background:#002B66;
+          color:#FFFFFF;
+          text-align:center;
+      }
+
+      b{
+          font-size:12px;
+      }
+
+      li{
+          font-size:12px;
+      }
+
+      h3{
+          font-size:15px;
+      }
+
+      label{
+          font-size:12px;
+      }
+
     </style>
   </head>
 
@@ -98,11 +137,11 @@
 
       <h2>College Contact Information</h2>
       <ul>
-        <li><b>College Name: </b>Government Degree College</li>
-        <li><b>Address: </b>Bagah, West Champaran, Bihar</li>
-        <li><b>Phone: </b>+91******1860</li>
-        <li><b>Email: </b>ishrajkumar781@gmail.com</li>
-        <li><b>Website: </b>https://college-website-g121.onrender.com</li>
+        <li><b>College Name: </b> Government Degree College</li>
+        <li><b>Address: </b> Harnatand, West Champaran, Bihar</li>
+        <li><b>Phone:</b> +919939841860</li>
+        <li><b>Email:</b> ishrajkumar781@@gmail.com</li>
+        <li><b>Website: </b> www.gdcollege.com</li>
       </ul>
 
       
@@ -153,56 +192,52 @@
       <p>For admission-related queries, students can contact the admission helpdesk for assistance and information.</p>
       <ul>
         <li><b>Admission Enquiry:</b> +91******1860</li>
-        <li><b>Email: </b>ishrajkumar781@gmail.com</li>       
-        <li><b>Services: </b>Course information, admission procedure, eligibility information, application assistance and document verification.</li>
+        <li><b>Email: </b> ishrajkumar781@gmail.com</li>
+        <li><b>Services: </b> Course information, admission procedure, eligibility information, application assistance and document verification.</li>
       </ul>
 
       <h2>Send Us Message</h2>
       <p>Have a question or need assistance? Send us a message using the contact form below. Please provide accurate information so that we can respond to your enquiry.</p>
-      <form action="/submit", method="POST">
+      <form>
       <label>Full Name<span>*</span></label>
       <br>
       <input
-        name="name"
+        name="Name"
         type="text"
-        placeholder="Enter Your Full Name"
         required>
       <br><br>
 
       <label>Email Address<span>*</span></label>
       <br>
       <input
-        name="email"
+        name="Email"
         type="email"
-        placeholder="Enter Your Email Address"
         required>
       <br><br>
 
       <label>Subject<span>*</span></label>
       <br>
-      <select name="subjects" required>
+      <select required>
         <option value="" disabled selected>Select</option>
-        <option value="Admission Inquiry" required>Admission Enquiry</option>
+        <option name="Subject" required>Admission Enquiry</option>
         <option>Course Information</option>
-        <option value="Examination">Examination</option>
-        <option value="Scholarship">Scholarship</option>
-        <option value="Document Verification">Document Verification</option>
-        <option value="Genral Inquiry">General Enquiry</option>
-        <option value="Others">Other</option>
+        <option name="Subject">Examination</option>
+        <option name="Subject">Scholarship</option>
+        <option name="Subject">Document Verification</option>
+        <option name="Subject">General Enquiry</option>
+        <option name="Subject">Other</option>
       </select>
       <br><br>
 
       <label>Message<span>*</span></label>
       <br>
       <textarea
-        name="message"
         cols="30"
         rows="7"
         placeholder="Enter Your Message"
         required></textarea>
       <br><br>
       <input
-        value="submit"
         type="submit"
         class="send">
       </form>
@@ -214,7 +249,7 @@
       <p>Government Degree College
 Bagaha, West Champaran
 Bihar, India</p>
-      <br><br>
+      <br>
 
       <h2>Frequently Asked Questions</h2>
       <h3>Q. How can I contact the college?</h3>
@@ -235,3 +270,4 @@ Bihar, India</p>
     
   </body>
 </html>
+

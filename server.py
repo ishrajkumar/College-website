@@ -62,7 +62,7 @@ def submit():
 
     cursor.execute("CREATE TABLE IF NOT EXISTS College_users (Name TEXT, Email TEXT, Subject TEXT, Messages TEXT)")
 
-    cursor.execute("INSERT INTO College_users VALUES(?,?,?,?)" (name,email,subject,message))
+    cursor.execute("INSERT INTO College_users VALUES(?,?,?,?)", (name,email,subject,message))
     db.commit()
     db.close()
     return render_template("submit.html")  

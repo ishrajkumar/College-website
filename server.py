@@ -1,4 +1,5 @@
 import os
+import sqlite3
 from flask import Flask, render_template,request
 
 app = Flask(__name__)
@@ -56,6 +57,14 @@ def submit():
     print(f"Message: {message}", flush=True)
     print(f"Data Received!",flush=True)
 
+    db = sqlite3.connect("college.db")
+    cursor = db.cursor()
+
+    cursor.execute("CREATE TABLE IF NOT EXISTS College_users (Name TEXT, Email TEXT, Subject TEXT, Messages TEXT)")
+
+    cursor.execute("INSERT INTO College_users VALUES(?,?,?,?)" (name,email,subject,message))
+    db.commit()
+    db.close()
     return render_template("submit.html")  
 
 

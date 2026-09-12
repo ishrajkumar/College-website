@@ -1,73 +1,72 @@
-import os
+from werkzeug.security import generate_password_hash , check_password_hash
+
+from flask import Flask, render_template, request, session , redirect 
+
 import sqlite3
-from flask import Flask, render_template,request
 
 app = Flask(__name__)
+app.secret_key = "my_college"
 
-@app.route('/')
+def init_db():
+    conn = sqlite3.connect("user.db")
+    conn.execute("""CREATE TABLE IF NOT EXISTS users(
+                 id INTEGER PRIMARY KEY AUTOINCREMENT,
+                 email TEXT UNIQUE NOT NULL,
+                 password TEXT NOT NULL
+                 )
+                 """)
+    conn.commit()
+    conn.close()
+
+init_db()
+
+@app.route("/")
 def home():
-    return render_template('home.html')
+    return render_template("home.html")
 
-@app.route('/about')
-def about():
-    return render_template('about.html')
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    if request.method=="GET":
+        return render_template("register.html")
 
-@app.route('/contact')
-def contact():
-    return render_template('contact.html')
+    if request.method=="POST":
+        email=request.form.get("email")
+        password=request.form.get("password")
+        hashed_password = generate_password_hash(password)
 
-@app.route('/form')
-def form():
-    return render_template('form.html')
+        conn = sqlite3.connect("user.db")
+        
+        try:
+            conn.execute("INSERT INTO users (email, password) VALUES (?, ?)", (email,hashed_password))
+            conn.commit()
+            conn.close()
+            return redirect("/register")
+        except sqlite3.IntegrityError:
+            conn.close()
+            return "Email Already Exists!"
 
-@app.route("/application")
-def application():
-    return render_template("cation.html")
+@app.route("/login", methods = ["GET", "POST"])
+def login():
+    if request.method == "GET":
+        return render_template("login.html")
+    if request.method == "POST":
+        email = request.form.get("email")
+        password = request.form.get("password")
+        conn = sqlite3.connect("user.db")
 
-@app.route("/courses")
-def courses():
-    return render_template("courses.html")
+        user = conn.execute("SELECT * FROM users WHERE email = ?" , (email,)).fetchone()
 
-@app.route("/notice")
-def notice():
-    return render_template("notice.html")
+        conn.close()
 
-@app.route("/ba")
-def ba():
-    return render_template("ba.html")
+        if user and check_password_hash(user[2], password):
+            session['user'] = email
+            return "Login Succesful!"
 
-@app.route("/bsc")
-def bsc():
-    return render_template("bsc.html")
+        else:
+            return "Data not Found"
 
-@app.route("/bca")
-def bca():
-    return render_template("bca.html")
-
-@app.route("/submit", methods=["POST"])
-def submit():
-    name = request.form.get("name")
-    email = request.form.get("email")
-    subject = request.form.get("subjects")
-    message = request.form.get("message")
-    print(f"From Contact Us Page:")
-    print(f"Name: {name}", flush=True)
-    print(f"Email Id: {email}", flush=True)
-    print(f"Subject: {subject}", flush=True)
-    print(f"Message: {message}", flush=True)
-    print(f"Data Received!",flush=True)
-
-    db = sqlite3.connect("college.db")
-    cursor = db.cursor()
-
-    cursor.execute("CREATE TABLE IF NOT EXISTS College_users (Name TEXT, Email TEXT, Subject TEXT, Messages TEXT)")
-
-    cursor.execute("INSERT INTO College_users VALUES(?,?,?,?)", (name,email,subject,message))
-    db.commit()
-    db.close()
-    return render_template("submit.html")  
+if __name__ == "__main__":
+    app.run(debug=True)
 
 
-if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port, debug=True)
+

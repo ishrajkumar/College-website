@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+      *{
+        box-sizing:border-box;
+      }
+
+      body{
+        padding:10px;
+        margin:100px 10px;
+      }
+
+      .container{
+        border:1px solid #002B66;
+        border-radius:35px;
+        background:#FFFFFF;
+        box-shadow:0 4px 12px rgba(0,0,0,0.8);
+      }
+      .image{
+        border:1px solid #002B66;
+        width:40px;
+        height:40px;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        border-radius:50%;
+        padding:10px;
+        
+      }
+      .image img{
+        width:25px;
+        height:25px;
+      }
+
+      .logo h1{
+        margin:5px;
+        color:#002B66;
+      }
+
+      .logo{
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        margin:10px 0;
+      }
+
+      .details_2{
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+      }
+
+     .enter input{
+       padding:8px;
+       width:260px;
+       border:1px solid #002B66;
+       border-radius:5px;
+
+      }
+
+      .enter label{
+        color:#002B66;
+      }
+
+      .submit-btn button{
+        width:260px;
+        padding:9px;
+        background:#002B66;
+        border:none;
+        color:#FFFFFF;
+        border-radius:5px;
+      }
+
+      .link a{
+        text-decoration:none;
+        color:#002B66;
+      }
+
+      .link p{
+        text-align:center;
+      }
+
+      .enter{
+        margin:20px 0;
+      }
+
+      .or{
+        text-align:center;
+        color:#002B66;
+      }
+  </style>
+    
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <div class="logo_flex">
+        <div class="logo">
+          <div class="image">
+            <img src="/static/contact.png">
+          </div>
+          <h1>Sign Up</h1>
+        </div>
+      </div>
+      <form action="/register" method="POST">
+
+      <div class="details">
+        <div class="details_2">
+          
+          <div class="enter">
+            <label for="email">Email Address</label>
+            <br>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Email"
+              required
+          </div>
+
+          <div class="enter">
+            <label for="password">Password</label>
+            <br>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Password"
+              required>
+          </div>
+          <br>
+
+          <div class="submit-btn">
+            <button
+              type="submit"><b>Register</b></button>
+          </div>
+          <p class="or"><b>Or</b></p>
+
+          <div class="link">
+            <p>Already have an account? <a href="/login">Login</a></p>
+          </div>
+        </div>
+      </div>
+      </form> 
+    </div>
+  </body>
+</html>

@@ -5,27 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <style>
-
-      .reset{
-        display:flex;
-        justify-content:center;
-      }
-
-      .submit-btn a{
-        width:260px;
-        background:#002B66;
-        border-radius:5px;
-        font-size:12px;
-        padding:9px;
-        border:1px solid #002B66;
-        text-align:center;
-        color:white;
-        text-decoration:none;
-      }
-
-      span{
-        color:red;
-      }
       *{
         box-sizing:border-box;
       }
@@ -34,6 +13,10 @@
         font-style:sans-serif;
         padding:10px;
         margin:100px 10px;
+      }
+
+      span{
+        color:red;
       }
 
       .container{
@@ -51,18 +34,17 @@
         justify-content:center;
         align-items:center;
         border-radius:50%;
-        padding:10px;
         
       }
       .image img{
-        width:25px;
-        height:25px;
+        width:28px;
+        height:28px;
       }
 
       .logo h1{
         margin:5px;
         color:#002B66;
-        font-size:30px;
+        font-size:25px;
       }
 
       .logo{
@@ -104,6 +86,7 @@
       .link a{
         text-decoration:none;
         color:#002B66;
+        
       }
 
       .link p{
@@ -129,51 +112,47 @@
       <div class="logo_flex">
         <div class="logo">
           <div class="image">
-            <img src="/static/user.png">
+            <img src="reset.png">
           </div>
-          <h1>Log in</h1>
+          <h1>Reset Password</h1>
         </div>
       </div>
-      <form action="/login" method="POST">
+      <form action="/change_password" method="POST">
 
       <div class="details">
         <div class="details_2">
           
           <div class="enter">
-            <label for="email">Email Address<span>*</span></label>
+            <label for="old_passwprd">Current Password<span>*</span></label>
             <br>
             <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Email"
+              type="password"
+              name="old_password"
+              id="old_password"
+              placeholder="Enter Current Password"
               required
           </div>
 
           <div class="enter">
-            <label for="password">Password<span>*</span></label>
+            <label for="new_password">New Password<span>*</span></label>
             <br>
             <input
               type="password"
-              name="password"
-              id="password"
-              placeholder="Password"
+              name="new_password"
+              id="new_password"
+              placeholder="Enter New Password"
               required>
           </div>
           <br>
 
           <div class="submit-btn">
             <button
-              type="submit"><b>Log In</b></button>
-            <p class="or"><b>Or</b></p>
-            <div class="reset">
-            <a href="change_password.html"><b>Change Password</b></a>
-            </div>
+              type="submit"><b>Submit</b></button>
           </div>
           <p class="or"><b>Or</b></p>
 
           <div class="link">
-            <p>Don't have an account? <a href="/register"><b>Register</b></a></p>
+            <p>Already have an account? <a href="/login"><b>Login</b></a></p>
           </div>
         </div>
       </div>

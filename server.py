@@ -24,6 +24,7 @@ init_db()
 def home():
     return render_template("home.html")
 
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method=="GET":
@@ -106,6 +107,11 @@ def change_password():
         else:
             conn.close()
             return "Old Password is Wrong!"
+
+@app.route("/change_password" methods=["GET"])
+def change():
+    return render_template("change_password.html")
+
 
 if __name__ == "__main__":
     app.run(debug=True)

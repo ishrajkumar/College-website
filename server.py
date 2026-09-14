@@ -61,7 +61,7 @@ def login():
         conn.close()
         if user is None:
             return "Email Not Registered !"
-        if user and check_password_hash(user[2], password):
+        if check_password_hash(user[2], password):
             session['user'] = email
             return "Login Succesful !"
 

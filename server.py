@@ -59,59 +59,14 @@ def login():
         user = conn.execute("SELECT * FROM users WHERE email = ?" , (email,)).fetchone()
 
         conn.close()
-
+        if user is None:
+            return "Email Not Registered !"
         if user and check_password_hash(user[2], password):
             session['user'] = email
-            return "Login Succesful!"
+            return "Login Succesful !"
 
         else:
-            return "Data not Found"
-
-@app.route("/change-password", methods=["GET", "POST"])
-def change_password():
-
-    if "user" not in session:
-        return "Please Login First"
-
-    if request.method == "GET":
-        return render_template("change_password.html")
-
-    if request.method == "POST":
-
-        old_password = request.form.get("old_password")
-        new_password = request.form.get("new_password")
-
-        email = session["user"]
-
-        conn = sqlite3.connect("user.db")
-
-        user = conn.execute(
-            "SELECT * FROM users WHERE email = ?",
-            (email,)
-        ).fetchone()
-
-        if user and check_password_hash(user[2], old_password):
-
-            new_hashed_password = generate_password_hash(new_password)
-
-            conn.execute(
-                "UPDATE users SET password = ? WHERE email = ?",
-                (new_hashed_password, email)
-            )
-
-            conn.commit()
-            conn.close()
-
-            return "Password Changed Successfully!"
-
-        else:
-            conn.close()
-            return "Old Password is Wrong!"
-
-@app.route("/change_password" methods=["GET"])
-def change():
-    return render_template("change_password.html")
-
+            return "Wrong Password !"
 
 if __name__ == "__main__":
     app.run(debug=True)

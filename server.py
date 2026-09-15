@@ -21,6 +21,10 @@ def init_db():
 init_db()
 
 @app.route("/")
+def index():
+    return render_template("index.html")
+
+@app.route("/home")
 def home():
     return render_template("home.html")
 
@@ -63,7 +67,7 @@ def login():
             return "Email Not Registered !"
         if check_password_hash(user[2], password):
             session['user'] = email
-            return "Login Succesful !"
+            return redirect("/home")
 
         else:
             return "Wrong Password !"

@@ -12,7 +12,8 @@ def init_db():
     conn.execute("""CREATE TABLE IF NOT EXISTS users(
                  id INTEGER PRIMARY KEY AUTOINCREMENT,
                  email TEXT UNIQUE NOT NULL,
-                 password TEXT NOT NULL
+                 password TEXT NOT NULL,
+                 email_verified INTEGER DEFAULT 0
                  )
                  """)
     conn.commit()

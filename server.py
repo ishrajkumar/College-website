@@ -13,7 +13,6 @@ def init_db():
                  id INTEGER PRIMARY KEY AUTOINCREMENT,
                  email TEXT UNIQUE NOT NULL,
                  password TEXT NOT NULL,
-                 email_verified INTEGER DEFAULT 0
                  )
                  """)
     conn.commit()
@@ -46,11 +45,13 @@ def register():
             conn.execute("INSERT INTO users (email, password) VALUES (?, ?)", (email,hashed_password))
             conn.commit()
             conn.close()
+            flash("Register Succesful!")
             return redirect("/register")
             
         except sqlite3.IntegrityError:
             conn.close()
-            return "Email Already Exists!"
+            flash("Email Already Exists!")
+            return redirect("/register")
 
 @app.route("/login", methods = ["GET", "POST"])
 def login():
@@ -65,13 +66,16 @@ def login():
 
         conn.close()
         if user is None:
-            return "Email Not Registered !"
+            flash("Email Not Registered!")
+            return redirect("/login")
         if check_password_hash(user[2], password):
             session['user'] = email
-            return redirect("/home")
+            flash("Login Succesful!")
+            return "Login Succesful!"
 
         else:
-            return "Wrong Password !"
+            flash("Incorrect Email or Password")
+            return redirect("/login")
 
 if __name__ == "__main__":
     app.run(debug=True)

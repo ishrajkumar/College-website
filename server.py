@@ -1,6 +1,6 @@
 from werkzeug.security import generate_password_hash , check_password_hash
 
-from flask import Flask, render_template, request, session , redirect 
+from flask import Flask, render_template, request, session , redirect, flash 
 
 import sqlite3
 
@@ -12,7 +12,7 @@ def init_db():
     conn.execute("""CREATE TABLE IF NOT EXISTS users(
                  id INTEGER PRIMARY KEY AUTOINCREMENT,
                  email TEXT UNIQUE NOT NULL,
-                 password TEXT NOT NULL,
+                 password TEXT NOT NULL
                  )
                  """)
     conn.commit()
@@ -45,13 +45,11 @@ def register():
             conn.execute("INSERT INTO users (email, password) VALUES (?, ?)", (email,hashed_password))
             conn.commit()
             conn.close()
-            flash("Register Succesful!")
-            return redirect("/register")
+            return "Register Succesful!"
             
         except sqlite3.IntegrityError:
             conn.close()
-            flash("Email Already Exists!")
-            return redirect("/register")
+            return "Email Already Exists!"
 
 @app.route("/login", methods = ["GET", "POST"])
 def login():
@@ -66,16 +64,14 @@ def login():
 
         conn.close()
         if user is None:
-            flash("Email Not Registered!")
-            return redirect("/login")
+            return "Email Not Registered!"
+
         if check_password_hash(user[2], password):
             session['user'] = email
-            flash("Login Succesful!")
-            return "Login Succesful!"
+            return redirect("/home")
 
         else:
-            flash("Incorrect Email or Password")
-            return redirect("/login")
+            return "Incorrect Email or Password!"
 
 if __name__ == "__main__":
     app.run(debug=True)

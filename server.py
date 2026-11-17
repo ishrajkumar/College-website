@@ -2,32 +2,38 @@ from werkzeug.security import generate_password_hash , check_password_hash
 
 from flask import Flask, render_template, request, session , redirect, flash 
 
-import sqlite3
+import mysql.connector
 
 app = Flask(__name__)
 app.secret_key = "my_college"
 
+def get_conn():
+    conn = mysql.connector.connect(
+            host="127.0.0.1",
+            user="root",
+            password="1234",
+            database="college_db()"
+            )
+
 def init_db():
-    conn = sqlite3.connect("user.db")
-    conn.execute("""CREATE TABLE IF NOT EXISTS users(
-                 id INTEGER PRIMARY KEY AUTOINCREMENT,
-                 email TEXT UNIQUE NOT NULL,
-                 password TEXT NOT NULL
+    conn = get_conn()
+    cursor = conn.cursor()
+
+    cursor.execute("""CREATE TABLE IF NOT EXISTS users(
+                 id INT AUTO_INCREMENT PRIMARY KEY,
+                 email VARCHAR(254) UNIQUE NOT NULL,
+                 password VARCHAR(255) NOT NULL
                  )
                  """)
     conn.commit()
+    cursor.close()
     conn.close()
 
 init_db()
 
 @app.route("/")
-def index():
-    return render_template("index.html")
-
-@app.route("/home")
 def home():
     return render_template("home.html")
-
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -39,15 +45,22 @@ def register():
         password=request.form.get("password")
         hashed_password = generate_password_hash(password)
 
-        conn = sqlite3.connect("user.db")
+        conn = get_conn()
+        cursor = conn.cursor()
+
         
         try:
-            conn.execute("INSERT INTO users (email, password) VALUES (?, ?)", (email,hashed_password))
+            cursor.execute("INSERT INTO users (email, password) VALUES (%s, %s)", (email,hashed_password))
+
             conn.commit()
+            cursor.close()
             conn.close()
+
             return "Register Succesful!"
             
-        except sqlite3.IntegrityError:
+        except mysql.IntegrityError:
+
+            cursor.close()
             conn.close()
             return "Email Already Exists!"
 
@@ -58,23 +71,29 @@ def login():
     if request.method == "POST":
         email = request.form.get("email")
         password = request.form.get("password")
-        conn = sqlite3.connect("user.db")
+        conn = get_conn()
+        cursor = conn.cursor()
 
-        user = conn.execute("SELECT * FROM users WHERE email = ?" , (email,)).fetchone()
+        cursor.execute("SELECT * FROM users WHERE email = %s" , (email,))
 
-        conn.close()
-        if user is None:
+        user = cursor.fetchone()
+
+        if not user:
             return "Email Not Registered!"
 
         if check_password_hash(user[2], password):
             session['user'] = email
-            return redirect("/home")
+            return "Login Succesful!"
 
         else:
             return "Incorrect Email or Password!"
 
+        finally:
+            cursor.close()
+            conn.close()
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="127.0.0.1", port=5000, debug=True)
 
 
 
